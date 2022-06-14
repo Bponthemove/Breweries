@@ -6,7 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
     mode: "production",
     entry: './src/index.js',
     output: {
-        filename: 'index.js',
+        filename: 'main.js',
         path: path.resolve(__dirname, 'dist'),
         clean: true
     },
@@ -22,7 +22,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
         new HtmlWebpackPlugin({
             title: 'Breweries',
             template: './src/index.html',
-            filename: 'index.html'
+            filename: 'index.html',
+            inject: false
         })
     ]
  };

@@ -5,14 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Breweries</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+    <link rel="manifest" href="/images/site.webmanifest">
+    <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="/images/browserconfig.xml">
+    <meta name="theme-color" content="#14213d">
     <link 
         rel="stylesheet" 
         href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
         integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
         crossorigin=""
     />
-    <link rel="manifest" href="manifest.json">
-    <link rel="stylesheet" href="./style.css">
+    <!-- disable before build -->
+    <!-- <link rel="stylesheet" href="./style.css"> -->
 </head>
 <body>
     <header>
@@ -20,10 +30,11 @@
     </header>
     <main>
         <div class="menu visible"></div>
-        <div class="map-container not-visible">
-            <div id="map">
-                <button class="close">X</button>
-                <div class="details-container">
+        <div class="map-page-container">
+            <button class="close">X</button>
+            <div class="details-container"></div>
+            <div class="map-container">
+                <div id="map">
                 </div>
             </div>
         </div>
@@ -33,23 +44,23 @@
             <form action="submit" id="form">
                 <label for="city">City</label>
                 <input id="city-input" type="text" name="city" value="">
-                <button type="submit">GO</button>
+                <button id='submit-btn' type="submit">GO</button>
             </form>
         </div>
-        <button id="random">Random Brewery</button>
+        <button id="random">Random</button>
         <button id="around-me-btn">Around me</button>
     </footer>
     <script 
-        type="module" 
-        src="index.js"
-    ></script>
-    <script 
-        src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
-        integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
-        crossorigin=""
+    src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+    integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+    crossorigin=""
     ></script> 
+    <script 
+        type="module" 
+        src="main.js"
+    ></script>
     <script type="module">
-        //only load service after everything has loaded
+        // only load service after everything has loaded
         window.addEventListener('load', async() => {
             if ('serviceWorker' in navigator) {
                 try{

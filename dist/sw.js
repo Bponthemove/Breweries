@@ -7,4 +7,4 @@ workbox.routing.registerRoute(
     new workbox.strategies.NetworkFirst()
   );
 
-workbox.precaching.precacheAndRoute([{"revision":"29e664fc9b5316b207843e636a009a08","url":"index.html"},{"revision":"cec1ccfa13cd8e6d04f07af4addaa6a4","url":"index.js"}]);
+workbox.precaching.precacheAndRoute([{"revision":"2e8f6a05d0aedf38ff97646e872ae3a8","url":"index.html"},{"revision":"f5b6827e3b9abcb5f42b4628069f5235","url":"main.js"}]);
